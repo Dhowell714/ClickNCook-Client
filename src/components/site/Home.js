@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom';
-import Categories from './Categories';
+// import {Link} from 'react-router-dom';
+// import Categories from './Categories';
 const Home = () => {
     return(
         <div className='main'>
@@ -11,7 +11,7 @@ const Home = () => {
                     Thank you for chosing Click N Cook! Your home for recipes and ingredients to share with homebodys and food fanatics alike! Check out our food categories below and get started!
                 </p>
                 <li>
-                    <Link to='/Categories'><Categories />Food Categories</Link>
+                    
                 </li>
             </div>
         </div>
