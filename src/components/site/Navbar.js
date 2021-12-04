@@ -9,6 +9,7 @@ import YourRecipes from './YourRecipes'
 import TrendingRecipes from './TrendingRecipes';
 import SignUp from './SignUp';
 import Login from './Login';
+import Categories from './Categories';
 
 const Navbar = () => {
     return(
@@ -21,6 +22,7 @@ const Navbar = () => {
                     <li><Link to='/trendingrecipes'>Trending Recipes</Link></li>
                     <li><Link to='/signup'>Sign Up</Link></li>
                     <li><Link to='/login'>Log In</Link></li>
+                    <li><Link to='/categories'>Categories</Link></li>
                 </ul>
             </div>
             <div className='navbar-route'>
@@ -31,6 +33,7 @@ const Navbar = () => {
                     <Route exact path='/trendingrecipes'><TrendingRecipes /></Route>
                     <Route exact path='/signup'><SignUp /></Route>
                     <Route exact path='/login'><Login /></Route>
+                    <Route exact parh='/categories'><Categories /></Route>
                 </Switch>
             </div>
         </div>
