@@ -1,7 +1,11 @@
+import React, { useState } from 'react';
+import {Button, Navbar, 
+        }
+ from 'reactstrap';
 import {
     Route,
     Link,
-    Switch
+    Switch,
 } from 'react-router-dom';
 import Home from './Home';
 import Favorites from './Favorites';
@@ -11,7 +15,10 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Categories from './Categories';
 
-const Navbar = () => {
+
+const Sitebar = (props) => {
+
+    
     return(
         <div className='navbar'>
             <div className='navbar-list-styling'>
@@ -31,13 +38,18 @@ const Navbar = () => {
                     <Route exact path='/favorites'><Favorites /></Route>
                     <Route exact path='/yourrecipes'><YourRecipes /></Route>
                     <Route exact path='/trendingrecipes'><TrendingRecipes /></Route>
-                    <Route exact path='/signup'><SignUp /></Route>
-                    <Route exact path='/login'><Login /></Route>
+                    <Route exact path='/signup'><SignUp updateToken={props.updateToken} /></Route>
+                    <Route exact path='/login'><Login clickLogout={props.clickLogout} updateToken={props.updateToken} /></Route>
                     <Route exact parh='/categories'><Categories /></Route>
                 </Switch>
             </div>
+          
+                
+              
         </div>
+        
+
     );
 };
 
-export default Navbar;
+export default Sitebar;
