@@ -1,5 +1,6 @@
 // import {Link} from 'react-router-dom';
 // import Categories from './Categories';
+
 const Home = () => {
     return(
         <div className='main'>
