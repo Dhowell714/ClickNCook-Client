@@ -14,6 +14,7 @@ import TrendingRecipes from './TrendingRecipes';
 import SignUp from './SignUp';
 import Login from './Login';
 import Categories from './Categories';
+import NewRecipes from './NewRecipes';
 
 
 const Sitebar = (props) => {
@@ -25,6 +26,7 @@ const Sitebar = (props) => {
                 <ul className='navbar-list list-unstyled'>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/favorites'>Favorites</Link></li>
+                    <li><Link to='/newrecipes'>New Recipe</Link></li>
                     <li><Link to='/yourrecipes'>Your Recipes</Link></li>
                     <li><Link to='/trendingrecipes'>Trending Recipes</Link></li>
                     <li><Link to='/signup'>Sign Up</Link></li>
@@ -36,6 +38,7 @@ const Sitebar = (props) => {
                 <Switch>
                     <Route exact path='/home'><Home /></Route>
                     <Route exact path='/favorites'><Favorites /></Route>
+                    <Route exact path='/newrecipes'><NewRecipes /></Route>
                     <Route exact path='/yourrecipes'><YourRecipes /></Route>
                     <Route exact path='/trendingrecipes'><TrendingRecipes /></Route>
                     <Route exact path='/signup'><SignUp updateToken={props.updateToken} /></Route>

@@ -10,9 +10,15 @@ import Home from './components/site/Home'
 import {
   BrowserRouter as Router 
 } from 'react-router-dom';
+import RecipeIndex from './Recipes/RecipeIndex';
 function App() {
 
   const [sessionToken, setSessionToken] = useState('');
+
+  const protectedViews = () => {
+    return (sessionToken === localStorage.getItem('token') ? <RecipeIndex token={sessionToken}/>
+    : <Sitebar updateToken={updateToken}/>)
+  }
 
   useEffect(() => {
     if (localStorage.getItem('token')){
