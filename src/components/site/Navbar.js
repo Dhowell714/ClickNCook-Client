@@ -14,7 +14,7 @@ import TrendingRecipes from './TrendingRecipes';
 import SignUp from './SignUp';
 import Login from './Login';
 import Categories from './Categories';
-import NewRecipes from './NewRecipes';
+import NewRecipes from '../../Recipes/NewRecipes';
 
 
 const Sitebar = (props) => {
