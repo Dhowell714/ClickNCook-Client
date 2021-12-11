@@ -21,8 +21,10 @@ const Sitebar = (props) => {
     
     return(
         <div className='navbar'>
+            
             <div className='navbar-list-styling'>
-                <ul className='navbar-list list-unstyled'>
+                <Navbar>
+                <ul className='navbar-list list-unstyled' id='menu'>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/favorites'>Favorites</Link></li>
                     <li><Link to='/yourrecipes'>Your Recipes</Link></li>
@@ -31,6 +33,7 @@ const Sitebar = (props) => {
                     <li><Link to='/login'>Log In</Link></li>
                     <li><Link to='/categories'>Categories</Link></li>
                 </ul>
+                </Navbar>
             </div>
             <div className='navbar-route'>
                 <Switch>
