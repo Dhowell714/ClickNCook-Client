@@ -4,17 +4,20 @@ const TrendingRecipes = () => {
     // e.preventDefault();
     // baseURL = 'http://localhost:3000/recipe/'
 
-    let searchName = document.getElementById("searchName");
+    
+    
+    // console.log(searchNameValue);
+    
+    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM5MTk5NjA4LCJleHAiOjE2MzkyODYwMDh9.Ircx-Gb25XS0Aud7yoyFe-AUvSPpuxKlhN_Nn7-jww4'
+
+    function fetchResults() {
+
+        let searchName = document.getElementById("searchName");
     // console.log(searchName);
     if (searchName) {
         var searchNameValue = searchName.value;
     }
-    
-    // console.log(searchNameValue);
-    
-    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM4OTI4NjAyLCJleHAiOjE2MzkwMTUwMDJ9.s1xeyDjINcTm8kgvNWTnkS-MuVxuwegRLgOk3H6O9gI'
 
-    function fetchResults(/*event*/) {
         // event.preventDefault();
         fetch('http://localhost:3000/recipe/all', {
             method: 'GET',
@@ -47,83 +50,67 @@ const TrendingRecipes = () => {
             // console.log(searchNameValue);
                 if (data[i].name === searchNameValue) {
                         // console.log("TEST")
+                        var RemovedisplayName = document.getElementById("displayName");
+                        if(typeof(RemovedisplayName) != 'undefined' && RemovedisplayName != null){
+                            console.log('Element exists!');
+                            RemovedisplayName.parentNode.removeChild(RemovedisplayName);
+
+                            var RemovedisplayDirections = document.getElementById("displayDirections");
+                            var RemovedisplaycookTime = document.getElementById("displaycookTime");
+                            var Removedisplaycategory = document.getElementById("displaycategory");
+                            var Removedisplayingredients = document.getElementById("displayingredients");
+                            var Removedisplaysubstitutions = document.getElementById("displaysubstitutions");
+
+                            RemovedisplayDirections.parentNode.removeChild(RemovedisplayDirections);
+                            RemovedisplaycookTime.parentNode.removeChild(RemovedisplaycookTime);
+                            Removedisplaycategory.parentNode.removeChild(Removedisplaycategory);
+                            Removedisplayingredients.parentNode.removeChild(Removedisplayingredients);
+                            Removedisplaysubstitutions.parentNode.removeChild(Removedisplaysubstitutions);
+
+                            console.log(`${dataName}`);
+                            console.log(`${dataDirections}`);
+                            console.log(`${datacookTime}`);
+                            console.log(`${datacategory}`);
+                            console.log(`${dataingredients}`);
+                            console.log(`${datasubstitutions}`);
                         
-                        //if the createElement elements already exist, delete them and then create them. If not, run else to create them.
+                            // display info
+                            var currentDiv = document.getElementById("currentDiv");
+                            var div = document.createElement("div");
 
-                        const testDisplayNameElement = document.getElementsByClassName("displayName");
-                        console.log('line 54');
-                        // if (typeof(testDisplayNameElement) != null) {
-                            // screenshot to code to test on this is located at Z:\Assets\RemoveExistingElements
-                            //look up "while" javascript function
+                            var displayName = document.createElement("h6");
+                            displayName.innerHTML = `${dataName}`;
+                            displayName.id = "displayName";
+                            div.appendChild(displayName);
 
-                        //     console.log('test');
+                            var displayDirections = document.createElement("h6");
+                            displayDirections.innerHTML = `${dataDirections}`;
+                            displayDirections.id = "displayDirections";
+                            div.appendChild(displayDirections);
 
-                            // var displayNameElement = document.getElementById('displayName');
-                            // displayNameElement.remove(); // Removes the element with the 'displayName' id
-                            
-                            // var displayDirectionsElement = document.getElementById('displayDirections');
-                            // displayDirectionsElement.remove();
-                           
-                            // var displaycookTimeElement = document.getElementById('displaycookTime');
-                            // displaycookTimeElement.remove(); 
-                           
-                            // var displaycategoryElement = document.getElementById('displaycategory');
-                            // displaycategoryElement.remove(); 
-                           
-                            // var displayingredientsElement = document.getElementById('displayingredients');
-                            // displayingredientsElement.remove();
-                           
-                            // var displaysubstitutionsElement = document.getElementById('displaysubstitutions');
-                            // displaysubstitutionsElement.remove();
+                            var displaycookTime = document.createElement("h6");
+                            displaycookTime.innerHTML = `${datacookTime}`;
+                            displaycookTime.id = "displaycookTime";
+                            div.appendChild(displaycookTime);
 
+                            var displaycategory = document.createElement("h6");
+                            displaycategory.innerHTML = `${datacategory}`;
+                            displaycategory.id = "displaycategory";
+                            div.appendChild(displaycategory);
 
-                            
-                            // console.log(`${dataName}`);
-                            // console.log(`${dataDirections}`);
-                            // console.log(`${datacookTime}`);
-                            // console.log(`${datacategory}`);
-                            // console.log(`${dataingredients}`);
-                            // console.log(`${datasubstitutions}`);
-                        
-                            // // display info
-                            // var currentDiv = document.getElementById("currentDiv");
-                            // var div = document.createElement("div");
+                            var displayingredients = document.createElement("h6");
+                            displayingredients.innerHTML = `${dataingredients}`;
+                            displayingredients.id = "displayingredients";
+                            div.appendChild(displayingredients);
 
-                            // var displayName = document.createElement("h6");
-                            // displayName.innerHTML = `${dataName}`;
-                            // displayName.id = "displayName";
-                            // div.appendChild(displayName);
+                            var displaysubstitutions = document.createElement("h6");
+                            displaysubstitutions.innerHTML = `${datasubstitutions}`;
+                            displaysubstitutions.id = "displaysubstitutions";
+                            div.appendChild(displaysubstitutions);
 
-                            // var displayDirections = document.createElement("h6");
-                            // displayDirections.innerHTML = `${dataDirections}`;
-                            // displayDirections.id = "displayDirections";
-                            // div.appendChild(displayDirections);
-
-                            // var displaycookTime = document.createElement("h6");
-                            // displaycookTime.innerHTML = `${datacookTime}`;
-                            // displaycookTime.id = "displaycookTime";
-                            // div.appendChild(displaycookTime);
-
-                            // var displaycategory = document.createElement("h6");
-                            // displaycategory.innerHTML = `${datacategory}`;
-                            // displaycategory.id = "displaycategory";
-                            // div.appendChild(displaycategory);
-
-                            // var displayingredients = document.createElement("h6");
-                            // displayingredients.innerHTML = `${dataingredients}`;
-                            // displayingredients.id = "displayingredients";
-                            // div.appendChild(displayingredients);
-
-                            // var displaysubstitutions = document.createElement("h6");
-                            // displaysubstitutions.innerHTML = `${datasubstitutions}`;
-                            // displaysubstitutions.id = "displaysubstitutions";
-                            // div.appendChild(displaysubstitutions);
-
-                            // div.appendChild(currentDiv);
-                            // document.body.appendChild(div);
-                            // div.insertBefore(currentDiv, div);
-
-                        // } else {
+                            div.appendChild(currentDiv);
+                            document.body.appendChild(div);
+                        } else{
                             console.log(`${dataName}`);
                             console.log(`${dataDirections}`);
                             console.log(`${datacookTime}`);
@@ -168,11 +155,17 @@ const TrendingRecipes = () => {
                             div.appendChild(currentDiv);
                             document.body.appendChild(div);
                             // div.insertBefore(currentDiv, div);
+
+
+                            // console.log("SUCCESS!!")
                         // }
+                        };
+                        
                         
 
                 } else {
-                    console.log('error!')
+                    console.log(searchNameValue);
+                    // console.log('error!')
                 }
 
           }
@@ -193,6 +186,7 @@ const TrendingRecipes = () => {
             <input type="button" value="Submit" onClick={fetchResults}></input>
 
             {/* display data below: */}
+            </form>
             <div id="currentDiv"></div>
 
             {/* <h6 id="displaydataName"></h6>
@@ -201,7 +195,7 @@ const TrendingRecipes = () => {
             <h6 id="displaydatacategory"></h6>
             <h6 id="displaydataingredients"></h6>
             <h6 id="displaydatasubstitutions"></h6> */}
-            </form>
+            
         
         </div>
         
