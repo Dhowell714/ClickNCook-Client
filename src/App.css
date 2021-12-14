@@ -59,3 +59,7 @@
 footer{
   margin-top: 100px;
 }
+
+#login{
+  flex-direction: column;
+}

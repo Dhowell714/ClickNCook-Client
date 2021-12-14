@@ -2,6 +2,8 @@
 // import Categories from './Categories';
 
 const Home = () => {
+
+    
     return(
         <div className='main'>
             <div className='mainDiv'>
