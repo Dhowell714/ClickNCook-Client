@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {Button, Form, FormGroup, Label, Input} from "reactstrap";
+import RecipeIndex from "./RecipeIndex";
 import Header from "../components/site/Header";
 
 const NewRecipes = (props) => {
+    console.log(props)
     const [name, setName] = useState('');
     const [directions, setDirections] = useState('');
     const [cookTime, setCookTime] = useState('');
@@ -36,7 +38,7 @@ const NewRecipes = (props) => {
     return(
         <>
           <h3>Create a Recipe</h3>
-          <Form>
+          <Form onSubmit={handleSubmit}>
               <FormGroup>
                   <h4>Recipe Name</h4>
                   <Label htmlFor="name"/>

@@ -15,7 +15,7 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Categories from './Categories';
 import NewRecipes from '../../Recipes/NewRecipes';
-
+import RecipeIndex from '../../Recipes/RecipeIndex';
 
 const Sitebar = (props) => {
 
@@ -36,9 +36,10 @@ const Sitebar = (props) => {
             </div>
             <div className='navbar-route'>
                 <Switch>
+                    {/* <RecipeIndex /> */}
                     <Route exact path='/home'><Home /></Route>
                     <Route exact path='/favorites'><Favorites /></Route>
-                    <Route exact path='/newrecipes'><NewRecipes /></Route>
+                    <Route exact path='/newrecipes'><NewRecipes fetchRecipes={props.fetchRecipes}/></Route>
                     <Route exact path='/yourrecipes'><YourRecipes /></Route>
                     <Route exact path='/trendingrecipes'><TrendingRecipes /></Route>
                     <Route exact path='/signup'><SignUp updateToken={props.updateToken} /></Route>

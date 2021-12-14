@@ -15,10 +15,7 @@ function App() {
 
   const [sessionToken, setSessionToken] = useState('');
 
-  const protectedViews = () => {
-    return (sessionToken === localStorage.getItem('token') ? <RecipeIndex token={sessionToken}/>
-    : <Sitebar updateToken={updateToken}/>)
-  }
+  
 
   useEffect(() => {
     if (localStorage.getItem('token')){
@@ -38,6 +35,10 @@ function App() {
     console.log(sessionToken);
   }
 
+  const protectedViews = () => {
+    return (sessionToken === localStorage.getItem('token') ? <RecipeIndex token={sessionToken}/>
+    : <Sitebar updateToken={updateToken}/>)
+  }
   return (
     <div className="App">
       <Header />
@@ -45,6 +46,7 @@ function App() {
      {/* <Auth /> */}
       <Router>
         <Sitebar clickLogout={clearToken} updateToken={updateToken}  />
+        {/* { protectedViews() } */}
       </Router>
       <Footer />
       

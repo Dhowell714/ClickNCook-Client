@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect  } from "react";
 import {Container, Row, Col} from 'reactstrap';
 import NewRecipes from "./NewRecipes";
-import RecipeTable from "./RecipeTable";
+// import RecipeTable from "./RecipeTable";
 
 const RecipeIndex = (props) => {
     const [recipe, setRecipe] = useState([]);
@@ -22,7 +22,7 @@ const RecipeIndex = (props) => {
     useEffect(() => {
         fetchRecipes();
     }, [])
-
+console.log(fetchRecipes)
     return(
         <Container>
     <Row>
@@ -31,7 +31,7 @@ const RecipeIndex = (props) => {
             {/*Create component here*/ }
         </Col>
         <col md="9">
-            <RecipeTable recipe={recipe} fetchRecipes={fetchRecipes} token={props.token}/>
+            {/* <RecipeTable recipe={recipe} fetchRecipes={fetchRecipes} token={props.token}/> */}
         </col>
     </Row> 
         </Container>
