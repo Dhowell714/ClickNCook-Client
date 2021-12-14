@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 /* 
 .App-logo {
@@ -39,4 +40,22 @@
 
 #menu .navbar-route{
   float: left;
+}
+
+#footer {
+  flex-direction:column;
+}
+
+#bg_img{
+  background-image: url('./assets/kCuttingboard.jpg');
+  background-position: center;
+  background-size:cover;
+  height: 100vh;
+  
+  background-repeat: no-repeat;
+  
+}
+
+footer{
+  margin-top: 100px;
 }
