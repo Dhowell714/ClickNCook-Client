@@ -30,6 +30,12 @@ const Signup = (props) => {
             setShowPassword(!showPassword);
         };
 
+        const clearInput = () => {
+            setEmail('')
+            setPassword('');
+        };
+        
+
     return(
         <div>
             <h1>Sign Up</h1>
@@ -43,7 +49,7 @@ const Signup = (props) => {
                     <Label htmlFor="password">Password</Label>
                     <Input type={showPassword ? "text" : "password"} onclick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
                 </FormGroup>
-                <Button type="submit">Sign Up</Button>
+                <Button onClick={clearInput} type="submit" >Sign Up</Button>
             
             </Form>
 
