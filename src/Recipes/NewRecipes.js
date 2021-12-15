@@ -80,11 +80,13 @@ const NewRecipes = (props) => {
               <FormGroup>
                   <h4>Category</h4>
                   <Label htmlFor="category"/>
-                  <Input name="category" value={category} onChange={(e) => setCategory(e.target.value)}/>
-                    {/* <option value="Breakfast">Breakfast</option>
+                  <Input type="select" name="category" value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>
-                    <option value="Dessert">Dessert</option> */}
+                    <option value="Dessert">Dessert</option>
+                </Input> 
+                    {  }
               </FormGroup>
               <FormGroup>
                   <h4>Ingredients</h4>
