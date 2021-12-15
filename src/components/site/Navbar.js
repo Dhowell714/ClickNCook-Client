@@ -37,7 +37,7 @@ const Sitebar = (props) => {
                     <Route exact path='/home'><Home /></Route>
                     <Route exact path='/favorites'><Favorites /></Route>
                     <Route exact path='/yourrecipes'><YourRecipes /></Route>
-                    <Route exact path='/trendingrecipes'><TrendingRecipes /></Route>
+                    <Route exact path='/trendingrecipes'><TrendingRecipes updateToken={props.updateToken}/></Route>
                     <Route exact path='/signup'><SignUp updateToken={props.updateToken} /></Route>
                     <Route exact path='/login'><Login clickLogout={props.clickLogout} updateToken={props.updateToken} /></Route>
                     <Route exact parh='/categories'><Categories /></Route>
