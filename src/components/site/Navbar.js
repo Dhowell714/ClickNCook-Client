@@ -22,8 +22,10 @@ const Sitebar = (props) => {
     
     return(
         <div className='navbar'>
+            
             <div className='navbar-list-styling'>
-                <ul className='navbar-list list-unstyled'>
+                <Navbar>
+                <ul className='navbar-list list-unstyled' id='menu'>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/favorites'>Favorites</Link></li>
                     <li><Link to='/newrecipes'>New Recipe</Link></li>
@@ -33,6 +35,7 @@ const Sitebar = (props) => {
                     <li><Link to='/login'>Log In</Link></li>
                     <li><Link to='/categories'>Categories</Link></li>
                 </ul>
+                </Navbar>
             </div>
             <div className='navbar-route'>
                 <Switch>
@@ -41,7 +44,7 @@ const Sitebar = (props) => {
                     <Route exact path='/favorites'><Favorites /></Route>
                     <Route exact path='/newrecipes'><NewRecipes updateToken={props.updateToken} fetchRecipes={props.fetchRecipes}/></Route>
                     <Route exact path='/yourrecipes'><YourRecipes /></Route>
-                    <Route exact path='/trendingrecipes'><TrendingRecipes /></Route>
+                    <Route exact path='/trendingrecipes'><TrendingRecipes updateToken={props.updateToken}/></Route>
                     <Route exact path='/signup'><SignUp updateToken={props.updateToken} /></Route>
                     <Route exact path='/login'><Login clickLogout={props.clickLogout} updateToken={props.updateToken} /></Route>
                     <Route exact parh='/categories'><Categories /></Route>
