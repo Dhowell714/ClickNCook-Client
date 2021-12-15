@@ -39,7 +39,7 @@ const Sitebar = (props) => {
                     {/* <RecipeIndex /> */}
                     <Route exact path='/home'><Home /></Route>
                     <Route exact path='/favorites'><Favorites /></Route>
-                    <Route exact path='/newrecipes'><NewRecipes fetchRecipes={props.fetchRecipes}/></Route>
+                    <Route exact path='/newrecipes'><NewRecipes updateToken={props.updateToken} fetchRecipes={props.fetchRecipes}/></Route>
                     <Route exact path='/yourrecipes'><YourRecipes /></Route>
                     <Route exact path='/trendingrecipes'><TrendingRecipes /></Route>
                     <Route exact path='/signup'><SignUp updateToken={props.updateToken} /></Route>

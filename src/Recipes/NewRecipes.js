@@ -12,15 +12,19 @@ const NewRecipes = (props) => {
     const [category, setCategory] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [substitutions, setSubstitutions] = useState('');
+    const token = localStorage.getItem('token')
+    const [recipe, setRecipe] = useState([]);
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(props)
         fetch('http://localhost:3000/recipe/create', {
             method: 'POST',
             body: JSON.stringify({recipe: {name, directions, cookTime, servingSize, category, ingredients, substitutions}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization':  "Bearer " + token
             })
         }) .then((res) => res.json())
         .then((recipeData) => {
@@ -31,9 +35,23 @@ const NewRecipes = (props) => {
             setCategory('');
             setIngredients('');
             setSubstitutions('');
-            props.fetchRecipes();
+            fetchRecipes();
         })
     }
+    const fetchRecipes = () => {
+        fetch('http://localhost:3000/recipe/all', {
+            method: 'GET',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + token
+            })
+        }) .then( (res) => res.json())
+        .then((logData) => {
+            setRecipe(logData)
+            console.log(logData)
+        })
+    }
+    
 
     return(
         <>

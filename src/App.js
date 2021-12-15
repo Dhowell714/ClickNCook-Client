@@ -38,6 +38,7 @@ function App() {
   const protectedViews = () => {
     return (sessionToken === localStorage.getItem('token') ? <RecipeIndex token={sessionToken}/>
     : <Sitebar updateToken={updateToken}/>)
+    
   }
   return (
     <div className="App">
