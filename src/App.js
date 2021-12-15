@@ -41,7 +41,7 @@ function App() {
     
   }
   return (
-    <div className="App">
+    <div className="App" id='bg_img'>
       <Header />
       <Home />
      {/* <Auth /> */}
