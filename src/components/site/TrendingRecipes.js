@@ -8,9 +8,11 @@ const TrendingRecipes = () => {
     
     // console.log(searchNameValue);
     
-    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM5NTE3NDkxLCJleHAiOjE2Mzk2MDM4OTF9.CUutpW2rzdTV0YlLaagTlm8EIROykUXrcogF0q6X9Ak'
+    // const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM5NTE3NDkxLCJleHAiOjE2Mzk2MDM4OTF9.CUutpW2rzdTV0YlLaagTlm8EIROykUXrcogF0q6X9Ak'
+    const token = localStorage.getItem('token')
 
-    function displayAllRecipes(props) {
+    function displayAllRecipes() {
+        
         // const accessToken = (props.updateToken)
         console.log("displayAllRecipes() called")
             // event.preventDefault();
@@ -18,8 +20,8 @@ const TrendingRecipes = () => {
             method: 'GET',
             headers: new Headers({
                 'Content-type': 'application/json',
-                "Authorization": `Bearer ${accessToken}`
-                // "Authorization": props.updateToken
+                // "Authorization": `Bearer ${accessToken}`
+                "Authorization": "Bearer " + token
             })
         })
         .then(res => {
@@ -131,7 +133,7 @@ const TrendingRecipes = () => {
 
             // displayAllRecipes();
 
-    function fetchResults(props) {
+    function fetchResults() {
         // const accessToken = props.updateToken
         let searchName = document.getElementById("searchName");
     // console.log(searchName);
@@ -144,8 +146,9 @@ const TrendingRecipes = () => {
             method: 'GET',
             headers: new Headers({
                 'Content-type': 'application/json',
-                "Authorization": `Bearer ${accessToken}`
+                // "Authorization": `Bearer ${accessToken}`
                 // "Authorization": props.updateToken
+                "Authorization": "Bearer " + token
             })
         })
         .then(res => {
