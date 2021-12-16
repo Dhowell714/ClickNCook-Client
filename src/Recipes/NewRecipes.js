@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Button, Form, FormGroup, Label, Input} from "reactstrap";
 import RecipeIndex from "./RecipeIndex";
 import Header from "../components/site/Header";
+import APIURL from "../helpers/environment";
 
 const NewRecipes = (props) => {
     console.log(props)
@@ -19,7 +20,7 @@ const NewRecipes = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(props)
-        fetch('http://localhost:3000/recipe/create', {
+        fetch(`${APIURL}/recipe/create`, {
             method: 'POST',
             body: JSON.stringify({recipe: {name, directions, cookTime, servingSize, category, ingredients, substitutions}}),
             headers: new Headers({
@@ -39,7 +40,7 @@ const NewRecipes = (props) => {
         })
     }
     const fetchRecipes = () => {
-        fetch('http://localhost:3000/recipe/all', {
+        fetch(`${APIURL}/recipe/all`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
