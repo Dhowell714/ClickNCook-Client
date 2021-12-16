@@ -8,7 +8,7 @@ const TrendingRecipes = () => {
     
     // console.log(searchNameValue);
     
-    // const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM5NTE3NDkxLCJleHAiOjE2Mzk2MDM4OTF9.CUutpW2rzdTV0YlLaagTlm8EIROykUXrcogF0q6X9Ak'
+    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM5NjAwMzYyLCJleHAiOjE2Mzk2ODY3NjJ9.ucJMAPECMQzjlRjG-38Hhhzd_wPrRrSGQ7n9-rFv90U'
     const token = localStorage.getItem('token')
 
     function displayAllRecipes() {
