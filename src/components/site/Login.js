@@ -6,6 +6,7 @@ const Login = (props) => {
     console.log(props)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,6 +22,13 @@ const Login = (props) => {
             props.updateToken(data.sessionToken)
         })
     }
+    const togglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+    const clearInput = () => {
+        setEmail('')
+        setPassword('');
+    };
 
     return(
         <div>
@@ -32,9 +40,9 @@ const Login = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
+                    <Input type={showPassword ? "text" : "password"} onclick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
                 </FormGroup>
-                <Button type="submit">Login</Button>
+                <Button onClick={clearInput} type="submit">Login</Button>
                 <Button onClick={props.clickLogout}>Logout</Button>
             </Form>
         </div>

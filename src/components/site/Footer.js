@@ -3,7 +3,7 @@ import {Row} from 'reactstrap';
 const Footer = () => {
     return(
         <footer>
-            <Row>
+            <Row id="footer">
                 Click-N-Cook 2021
             </Row>
         </footer>
