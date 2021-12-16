@@ -8,7 +8,7 @@ switch (window.location.hostname) {
 
         case 'dj-react-click-n-cook.herokuapp.com':
 
-        APIURL = 'https://dj-react-click-n-cook.herokuapp.com'
+        APIURL = 'https://dj-cooking-app.herokuapp.com'
 }
 
 export default APIURL;
