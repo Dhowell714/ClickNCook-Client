@@ -1,4 +1,5 @@
-
+import React, { useState } from "react";
+import APIURL from "../../helpers/environment";
 
 const TrendingRecipes = () => {
     // e.preventDefault();
@@ -16,7 +17,8 @@ const TrendingRecipes = () => {
         // const accessToken = (props.updateToken)
         console.log("displayAllRecipes() called")
             // event.preventDefault();
-        fetch('http://localhost:3000/recipe/all', {
+        fetch(`${APIURL}/recipe/all`, {
+        // fetch('http://localhost:3000/recipe/all', {
             method: 'GET',
             headers: new Headers({
                 'Content-type': 'application/json',
@@ -142,7 +144,8 @@ const TrendingRecipes = () => {
     }
 
         // event.preventDefault();
-        fetch('http://localhost:3000/recipe/all', {
+        fetch(`${APIURL}/recipe/all`, {
+        // fetch('http://localhost:3000/recipe/all', {
             method: 'GET',
             headers: new Headers({
                 'Content-type': 'application/json',
