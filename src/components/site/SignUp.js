@@ -8,8 +8,8 @@ const Signup = (props) => {
     const [showPassword, setShowPassword] = useState(false);
 
  
-    let handleSubmit = (event) => {
-        event.preventDefault();
+    let handleSubmit = (e) => {
+        e.preventDefault();
         console.log(email, password);
         fetch(`${APIURL}/user/register`, {      //http://localhost:3000/user/register the local 
             method: 'POST',
@@ -23,6 +23,9 @@ const Signup = (props) => {
             console.log(data)
          props.updateToken(data.sessionToken)
         })
+        .catch(err =>
+            console.log(err)
+        )
        
     }
 
