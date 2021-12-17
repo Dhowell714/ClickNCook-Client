@@ -24,8 +24,6 @@ fetch(`${APIURL}/recipe/mine`, {
 .then(data => {
     console.log("DATA");
     console.log(data)
-
-
 })
 }
 
