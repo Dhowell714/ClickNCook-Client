@@ -33,10 +33,6 @@ const Login = (props) => {
         setPassword('');
     };
 
-    const clearInput = () => {
-        setEmail('')
-        setPassword('');
-    };
 
     return(
         <div id="login">
