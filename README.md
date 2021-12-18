@@ -75,5 +75,5 @@ Weston:
     End
     
     Dwyne:
-        Tasks: login and signup
+        Tasks: login, signup, and the styling 
         
