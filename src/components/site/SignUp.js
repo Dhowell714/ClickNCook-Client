@@ -8,18 +8,23 @@ const Signup = (props) => {
     const [showPassword, setShowPassword] = useState(false);
 
  
+
     let handleSubmit = (e) => {
         e.preventDefault();
+      
         console.log(email, password);
         fetch(`${APIURL}/user/register`, {      //http://localhost:3000/user/register the local 
             method: 'POST',
             headers: new Headers({
+              
                 'Content-Type': 'application/json'
+               // 'Content-Type': 'application/JSON'
             }),
             body: JSON.stringify({user:{email: email, password: password}}),
         }).then(
             (response) => response.json()
         ).then((data) => {
+            clearInput();
             console.log(data)
             props.updateToken(data.sessionToken)
             clearInput();
