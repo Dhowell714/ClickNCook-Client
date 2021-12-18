@@ -13,15 +13,16 @@ const Signup = (props) => {
         console.log(email, password);
         fetch(`${APIURL}/user/register`, {      //http://localhost:3000/user/register the local 
             method: 'POST',
-            body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
-                'Content-Type': 'application/JSON'
-            })
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify({user:{email: email, password: password}}),
         }).then(
             (response) => response.json()
         ).then((data) => {
             console.log(data)
-         props.updateToken(data.sessionToken)
+            props.updateToken(data.sessionToken)
+            clearInput();
         })
         .catch(err =>
             console.log(err)
@@ -52,7 +53,7 @@ const Signup = (props) => {
                     <Input type={showPassword ? "text" : "password"} onclick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
                     
                 </FormGroup>
-                <Button onClick={clearInput} type="submit">Sign Up</Button>
+                <Button type="submit">Sign Up</Button>
                 
             </Form>
         </div>

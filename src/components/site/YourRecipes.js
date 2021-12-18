@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import APIURL from "../../helpers/environment";
+
 function fetchResults() {
 
     
@@ -5,7 +8,8 @@ function fetchResults() {
     const token = localStorage.getItem('token')
     console.log("fetchResults() called")
     // event.preventDefault();
-fetch('http://localhost:3000/recipe/mine', {
+fetch(`${APIURL}/recipe/mine`, {
+// fetch(`http://localhost:3000/recipe/mine`, {
     method: 'GET',
     headers: new Headers({
         'Content-Type': 'application/json',
