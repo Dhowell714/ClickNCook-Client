@@ -50,7 +50,7 @@ const Signup = (props) => {
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
 
-                    <Input type={showPassword ? "text" : "password"} onclick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
+                    <Input type={showPassword ? "text" : "password"} onClick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
                     
                 </FormGroup>
                 <Button type="submit">Sign Up</Button>
