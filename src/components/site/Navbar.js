@@ -16,15 +16,22 @@ import Login from './Login';
 import Categories from './Categories';
 import NewRecipes from '../../Recipes/NewRecipes';
 import RecipeIndex from '../../Recipes/RecipeIndex';
+import {
+    MDBContainer,
+    MDBNavbar,
+    MDBNavbarNav,
+    MDBNavbarItem,
+    MDBNavbarLink
+} from 'mdb-react-ui-kit';
 
 const Sitebar = (props) => {
 
     
     return(
         <div className='navbar'>
-            
+            <tr>
             <div className='navbar-list-styling'>
-                <Navbar>
+                <MDBNavbar>
                 <ul className='navbar-list list-unstyled' id='menu'>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/favorites'>Favorites</Link></li>
@@ -35,8 +42,9 @@ const Sitebar = (props) => {
                     <li><Link to='/login'>Log In</Link></li>
                     <li><Link to='/categories'>Categories</Link></li>
                 </ul>
-                </Navbar>
+                </MDBNavbar>
             </div>
+            </tr>
             <div className='navbar-route'>
                 <Switch>
                     {/* <RecipeIndex /> */}

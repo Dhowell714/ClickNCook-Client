@@ -1,20 +1,27 @@
 import React, {useState} from "react";
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import APIURL from "../helpers/environment";
-import fetchRecipes from "..components/NewRecipes";
+// import NewRecipes from "./NewRecipes";
+import RecipeIndex from "./RecipeIndex";
+import NewRecipes from "./NewRecipes";
+
 const RecipeEdit = (props) => {
-    const [editName, setEditName] = useState(props.recipesToUpdate.name);
-    const [editDirections, setEditDirections] = useState(props.recipesToUpdate.directions);
-    const [editCookTime, setEditCookTime] = useState(props.recipesToUpdate.cookTime);
-    const [editServingSize, setEditServingSize] = useState(props.recipesToUpdate.servingSize);
-    const [editCategory, setEditCategory] = useState(props.recipesToUpdate.category);
-    const [editIngredients, setEditIngredients] = useState(props.recipesToUpdate.ingredients);
-    const [editSubstitutions, setEditSubstitutions] = useState(props.recipesToUpdate.substitutions);
-    const recipeUpdate = (event, recipe) => {
+    // const [recipe, setRecipe] = useState('')
+    const [recipe, setRecipe] = useState([]);
+    const [editName, setEditName] = useState(props.recipeId.name);
+    const [editDirections, setEditDirections] = useState(props.recipeId.directions);
+    const [editCookTime, setEditCookTime] = useState(props.recipeId.cookTime);
+    const [editServingSize, setEditServingSize] = useState(props.recipeId.servingSize);
+    const [editCategory, setEditCategory] = useState(props.recipeId.category);
+    const [editIngredients, setEditIngredients] = useState(props.recipeId.ingredients);
+    const [editSubstitutions, setEditSubstitutions] = useState(props.recipeId.substitutions);
+    const token = localStorage.getItem('token')
+    const recipeUpdate = (event) => {
 
 
     event.preventDefault();
-    fetch(`${APIURL}/recipe/${props.recipesToUpdate.id}` , {
+    
+    fetch(`${APIURL}/recipe/update/${props.recipesToUpdate.id}` , {
         method: 'PUT',
         body: JSON.stringify({recipe: {name: editName, directions: editDirections, cookTime: editCookTime, servingSize: editServingSize, category: editCategory, ingredients: editIngredients, substitutions: editSubstitutions} }), 
         headers: new Headers({
@@ -25,8 +32,21 @@ const RecipeEdit = (props) => {
         props.fetchRecipes();
         props.updateOff();
     })
+    const fetchRecipes = () => {
+        fetch(`${APIURL}/recipe/all`, {
+            method: 'GET',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + token
+            })
+        }) .then( (res) => res.json())
+        .then((logData) => {
+            setRecipe(logData)
+            console.log(logData)
+        })
+    }
 
-}
+
     return(
         <Modal isOpen={true}>
           <ModalHeader>Edit a Recipe</ModalHeader>
@@ -71,5 +91,5 @@ const RecipeEdit = (props) => {
         </Modal>
     )
     }
-
+}
 export default RecipeEdit;

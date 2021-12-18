@@ -1,22 +1,29 @@
+// import {
+//     MDBNavbar,
+//     Nav,
+//     NavItem,
+//     NavLink
+// } from 'reactstrap';
 import {
-    Navbar,
-    Nav,
-    NavItem,
-    NavLink
-} from 'reactstrap';
+    MDBContainer,
+    MDBNavbar,
+    MDBNavbarNav,
+    MDBNavbarItem,
+    MDBNavbarLink
+} from 'mdb-react-ui-kit';
 
 const Header = () => {
     return(
         <header>
-            <Navbar className='header'>
-                <Nav className='ml-auto' navbar>
-                    <NavItem>
-                        <NavLink href='https://github.com/Dhowell714/ClickNCook-Client'>
+            <MDBNavbar className='header'>
+                <MDBNavbarNav className='ml-auto' navbar>
+                    <MDBNavbarItem>
+                        <MDBNavbarLink href='https://github.com/Dhowell714/ClickNCook-Client'>
                             Github
-                        </NavLink>
-                    </NavItem>
-                </Nav>
-            </Navbar>
+                        </MDBNavbarLink>
+                    </MDBNavbarItem>
+                </MDBNavbarNav>
+            </MDBNavbar>
         </header>
     );
 };
