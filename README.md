@@ -73,3 +73,7 @@ Weston:
     Role: Developer
     Tasks: display and delete in client
     End
+    
+    Dwyne:
+        Tasks: login and signup
+        
