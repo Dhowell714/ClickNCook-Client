@@ -3,7 +3,7 @@ import APIURL from "../../helpers/environment";
 
 function fetchResults() {
 
-    // const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM5NjAwMzYyLCJleHAiOjE2Mzk2ODY3NjJ9.ucJMAPECMQzjlRjG-38Hhhzd_wPrRrSGQ7n9-rFv90U'
+    
     
     const token = localStorage.getItem('token')
     console.log("fetchResults() called")

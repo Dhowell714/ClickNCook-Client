@@ -20,6 +20,8 @@ const Login = (props) => {
             (response) => response.json()
         ).then ((data) => {
             props.updateToken(data.sessionToken)
+      
+            clearInput();
             // clearInput();
         })
     }
