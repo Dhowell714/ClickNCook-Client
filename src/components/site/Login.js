@@ -12,19 +12,25 @@ const Login = (props) => {
         event.preventDefault();
     fetch(`${APIURL}/user/login`, {
             method: 'POST',
-            body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
                 'Content-type': 'application/json'
-            })
+            }),
+            body: JSON.stringify({user:{email: email, password: password}}),
         }).then(
             (response) => response.json()
         ).then ((data) => {
             props.updateToken(data.sessionToken)
+      
+            clearInput();
+            // clearInput();
         })
     }
-
     const togglePassword = () => {
         setShowPassword(!showPassword);
+    };
+    const clearInput = () => {
+        setEmail('')
+        setPassword('');
     };
 
     const clearInput = () => {
