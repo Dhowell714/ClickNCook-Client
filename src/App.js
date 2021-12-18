@@ -48,7 +48,7 @@ function App() {
      {/* <Auth /> */}
       <Router>
         <Sitebar clickLogout={clearToken} updateToken={updateToken}  />
-        {/* { protectedViews() } */}
+         {protectedViews() }
       </Router>
       <Footer />
       

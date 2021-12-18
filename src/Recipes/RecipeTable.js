@@ -15,19 +15,19 @@ const RecipeTable = (props) => {
     }
 
     const recipeMapper = () => {
-        return props.recipes.map((recipes, index) => {
+        return props.recipes.map((recipe, index) => {
             <tr key={index}>
-                <th scope="row">{recipes.id}</th>
-                <td>{recipes.name}</td>
-                <td>{recipes.directions}</td>
-                <td>{recipes.cookTime}</td>
-                <td>{recipes.servingSize}</td>
-                <td>{recipes.category}</td>
-                <td>{recipes.ingredients}</td>
-                <td>{recipes.substitutions}</td>
+                <th scope="row">{recipe.id}</th>
+                <td>{recipe.name}</td>
+                <td>{recipe.directions}</td>
+                <td>{recipe.cookTime}</td>
+                <td>{recipe.servingSize}</td>
+                <td>{recipe.category}</td>
+                <td>{recipe.ingredients}</td>
+                <td>{recipe.substitutions}</td>
                 <td>
-                    <Button color="warning">Update</Button>
-                    <Button color="danger" onclick={() => {deleteRecipes(recipes)}}>Delete</Button>
+                    <Button color="warning" onClick={() => {props.editUpdateRecipe(recipe); props.updateOn()}}>Update</Button>
+                    <Button color="danger" onclick={() => {deleteRecipes(recipe)}}>Delete</Button>
                 </td>
             </tr>
         })
@@ -37,8 +37,8 @@ const RecipeTable = (props) => {
         <>
         <h3>Recipe History</h3>
         <hr/>
-        <thead striped>
-            <Table>
+        <Table striped>
+            <thead>
                 <tr>
                     <th>#</th>
                     <th>Name</th>
@@ -49,8 +49,12 @@ const RecipeTable = (props) => {
                     <th>Ingredients</th>
                     <th>Substitutions</th>
                 </tr>
-            </Table>
+            
         </thead>
+        <tbody>
+            {recipeMapper()}
+        </tbody>
+    </Table>
         </>
     )
 }

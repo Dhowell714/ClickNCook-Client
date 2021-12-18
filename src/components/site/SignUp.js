@@ -10,16 +10,18 @@ const Signup = (props) => {
  
     let handleSubmit = (event) => {
         event.preventDefault();
+        console.log(APIURL);
         console.log(email, password);
         fetch(`${APIURL}/user/register`, {      //http://localhost:3000/user/register the local 
             method: 'POST',
-            body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
                 'Content-Type': 'application/JSON'
-            })
+            }),
+            body: JSON.stringify({user:{email: email, password: password}}),
         }).then(
             (response) => response.json()
         ).then((data) => {
+            clearInput();
             console.log(data)
          props.updateToken(data.sessionToken)
         })
@@ -49,7 +51,7 @@ const Signup = (props) => {
                     <Input type={showPassword ? "text" : "password"} onclick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
                     
                 </FormGroup>
-                <Button onClick={clearInput} type="submit">Sign Up</Button>
+                <Button type="submit">Sign Up</Button>
                 
             </Form>
         </div>
