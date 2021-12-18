@@ -46,7 +46,7 @@ const Login = (props) => {
                     <Label htmlFor="password">Password</Label>
                     <Input type={showPassword ? "text" : "password"} onclick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
                 </FormGroup>
-                <Button onClick={clearInput} type="submit">Login</Button>
+                <Button type="submit">Login</Button>
                 <Button onClick={props.clickLogout}>Logout</Button>
             </Form>
         </div>
