@@ -8,14 +8,17 @@ const Signup = (props) => {
     const [showPassword, setShowPassword] = useState(false);
 
  
-    let handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(APIURL);
+
+    let handleSubmit = (e) => {
+        e.preventDefault();
+      
         console.log(email, password);
         fetch(`${APIURL}/user/register`, {      //http://localhost:3000/user/register the local 
             method: 'POST',
             headers: new Headers({
-                'Content-Type': 'application/JSON'
+              
+                'Content-Type': 'application/json'
+               // 'Content-Type': 'application/JSON'
             }),
             body: JSON.stringify({user:{email: email, password: password}}),
         }).then(
@@ -23,8 +26,12 @@ const Signup = (props) => {
         ).then((data) => {
             clearInput();
             console.log(data)
-         props.updateToken(data.sessionToken)
+            props.updateToken(data.sessionToken)
+            clearInput();
         })
+        .catch(err =>
+            console.log(err)
+        )
        
     }
 
@@ -48,7 +55,7 @@ const Signup = (props) => {
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
 
-                    <Input type={showPassword ? "text" : "password"} onclick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
+                    <Input type={showPassword ? "text" : "password"} onClick={togglePassword} onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
                     
                 </FormGroup>
                 <Button type="submit">Sign Up</Button>
