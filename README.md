@@ -73,3 +73,7 @@ Weston:
     Role: Developer
     Tasks: display and delete in client
     End
+
+Devin:
+    Role: Gitmaster
+    Tasks: setup React files and create/update recipe
